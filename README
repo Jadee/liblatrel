@@ -1,0 +1,25 @@
+Latent Relevance Tools (LIBLATREL)
+
+@brief:	to train latent relevance model, and test given test_file
+@wiki:	http://wiki.babel.baidu.com/twiki/bin/view/Com/Ecom/LatentRelevance
+@email:	lichangcheng@baidu.com
+
+Training
+Usage: ./train [options] training_file [model_file]
+options:
+	-f mode: 1 with factorization, 0 no factorizatoin (default 1)
+	-k factorization dimension (default 3)
+	-c regularization coefficient (default 0.1)
+training_file format: 
+	label \t x1 \t x2 (example: 1 \t 0.1 0.2 \t 0.3 0.1)
+
+Notice: use "-f 1" for dense vector model (word2vec, etc.).
+
+Testing
+Usage: ./test test_file model_file
+test_file format: label \t x1 \t x2 (example: 1 \t 0.1 0.2 \t 0.3 0.1)
+
+Predict results are saved in ${test_file}.res. You can run "./auc -r ${test_file}.res" to get the AUC of the test_file.
+
+For any questions and comments, please send your email to lichangcheng@baidu.com
+
